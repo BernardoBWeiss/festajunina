@@ -100,6 +100,11 @@ export default function PescariaScreen() {
             <Text style={styles.emoji}>🐟</Text>
           </TouchableOpacity>
         </Animated.View>
+
+        <View style={styles.footer}>
+          <View style={styles.divider} />
+          <Text style={styles.footerText}>Bernardo Barcaro Weiss – 3° Info B</Text>
+        </View>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -109,8 +114,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#4B2E05",
-    justifyContent: "flex-start",
     paddingTop: 40,
+    justifyContent: "flex-start",
   },
   title: {
     fontSize: 28,
@@ -149,5 +154,25 @@ const styles = StyleSheet.create({
   },
   emoji: {
     fontSize: 32,
+  },
+  footer: {
+    position: "absolute",
+    bottom: 10,
+    width: "100%",
+    alignItems: "center",
+    paddingVertical: 10,
+    backgroundColor: "#4B2E05",
+  },
+  divider: {
+    height: 2,
+    width: "90%",
+    backgroundColor: "#FFD700",
+    marginBottom: 6,
+  },
+  footerText: {
+    color: "#FFD700",
+    fontSize: 14,
+    fontWeight: "600",
+    textAlign: "center",
   },
 });

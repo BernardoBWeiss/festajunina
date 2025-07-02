@@ -1,5 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Alert } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+} from "react-native";
 
 const perguntas = [
   {
@@ -91,23 +97,30 @@ export default function QuizJunino() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>📝 Quiz Junino</Text>
-      <Text style={styles.pergunta}>{pergunta.pergunta}</Text>
-      {pergunta.opcoes.map((opcao, index) => {
-        const letra = String.fromCharCode(65 + index); // A, B, C, D...
-        return (
-          <TouchableOpacity
-            key={opcao}
-            style={styles.botaoOpcao}
-            onPress={() => responder(opcao)}
-          >
-            <Text style={styles.textoOpcao}>{letra}) {opcao}</Text>
-          </TouchableOpacity>
-        );
-      })}
-      <Text style={styles.rodape}>
-        Pergunta {perguntaAtual + 1} / {perguntas.length}
-      </Text>
+      <View style={styles.quizContainer}>
+        <Text style={styles.titulo}>📝 Quiz Junino</Text>
+        <Text style={styles.pergunta}>{pergunta.pergunta}</Text>
+        {pergunta.opcoes.map((opcao, index) => {
+          const letra = String.fromCharCode(65 + index); // A, B, C, D...
+          return (
+            <TouchableOpacity
+              key={opcao}
+              style={styles.botaoOpcao}
+              onPress={() => responder(opcao)}
+            >
+              <Text style={styles.textoOpcao}>{letra}) {opcao}</Text>
+            </TouchableOpacity>
+          );
+        })}
+        <Text style={styles.rodape}>
+          Pergunta {perguntaAtual + 1} / {perguntas.length}
+        </Text>
+      </View>
+
+      <View style={styles.footer}>
+        <View style={styles.linha} />
+        <Text style={styles.nomeAluno}>Bernardo Barcaro Weiss – 3° Info B</Text>
+      </View>
     </View>
   );
 }
@@ -117,6 +130,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#4B2E05",
     padding: 20,
+  },
+  quizContainer: {
+    flex: 1,
     justifyContent: "center",
   },
   titulo: {
@@ -156,5 +172,26 @@ const styles = StyleSheet.create({
     color: "#F5D042",
     textAlign: "center",
     fontSize: 16,
+  },
+  footer: {
+    position: "absolute",
+    bottom: 10,
+    left: 0,
+    right: 0,
+    backgroundColor: "#4B2E05",
+    paddingVertical: 8,
+    alignItems: "center",
+  },
+  linha: {
+    width: "90%",
+    height: 1,
+    backgroundColor: "#F5D042",
+    marginBottom: 6,
+  },
+  nomeAluno: {
+    color: "#F5D042",
+    fontWeight: "600",
+    fontSize: 14,
+    textAlign: "center",
   },
 });

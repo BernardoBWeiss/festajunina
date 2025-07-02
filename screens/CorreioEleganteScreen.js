@@ -108,9 +108,14 @@ export default function CorreioEleganteScreen() {
                     data={mensagensRecebidas}
                     keyExtractor={(item) => item.id}
                     renderItem={renderItem}
-                    contentContainerStyle={{ paddingBottom: 40 }}
+                    contentContainerStyle={{ paddingBottom: 120 }}
                 />
             )}
+
+            <View style={styles.footer}>
+                <View style={styles.linha} />
+                <Text style={styles.nomeAluno}>Bernardo Barcaro Weiss – 3° Info B</Text>
+            </View>
         </KeyboardAvoidingView>
     );
 }
@@ -185,5 +190,27 @@ const styles = StyleSheet.create({
         fontSize: 12,
         color: "#F5D042",
         textAlign: "right",
+    },
+    footer: {
+        position: "absolute",
+        bottom: 10,
+        left: 0,
+        right: 0,
+        alignItems: "center",
+        paddingVertical: 8,
+        backgroundColor: "#4B2E05",
+    },
+    linha: {
+        width: "90%",
+        height: 1,
+        backgroundColor: "#F5D042",
+        marginBottom: 6,
+        alignSelf: "center",
+    },
+    nomeAluno: {
+        color: "#F5D042",
+        fontWeight: "600",
+        fontSize: 14,
+        textAlign: "center",
     },
 });

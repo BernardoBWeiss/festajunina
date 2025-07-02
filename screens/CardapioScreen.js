@@ -99,44 +99,53 @@ export default function CardapioScreen() {
     Alert.alert("Ingredientes", ingredientes);
   }
 
+  function renderItem({ item }) {
+    return (
+      <View style={styles.item}>
+        <Image source={item.img} style={styles.image} />
+        <View style={styles.textContainer}>
+          <View style={styles.headerRow}>
+            <Text style={styles.text}>
+              {item.nome} – R$ {item.preco.toFixed(2)}
+            </Text>
+            <TouchableOpacity onPress={() => toggleFavorito(item.id)}>
+              <Text
+                style={[
+                  styles.favorite,
+                  favoritos.includes(item.id) && styles.favoritoAtivo,
+                ]}
+              >
+                {favoritos.includes(item.id) ? "⭐" : "☆"}
+              </Text>
+            </TouchableOpacity>
+          </View>
+          <Text style={styles.description}>{item.descricao}</Text>
+          <TouchableOpacity
+            onPress={() => mostrarIngredientes(item.ingredientes)}
+            style={styles.btnIngredientes}
+          >
+            <Text style={styles.btnText}>👀 Ver ingredientes</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    );
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>🍽️ Cardápio Junino</Text>
       <FlatList
         data={cardapio}
         keyExtractor={(item) => item.id}
-        renderItem={({ item }) => (
-          <View style={styles.item}>
-            <Image source={item.img} style={styles.image} />
-            <View style={styles.textContainer}>
-              <View style={styles.headerRow}>
-                <Text style={styles.text}>
-                  {item.nome} – R$ {item.preco.toFixed(2)}
-                </Text>
-                <TouchableOpacity onPress={() => toggleFavorito(item.id)}>
-                  <Text
-                    style={[
-                      styles.favorite,
-                      favoritos.includes(item.id) && styles.favoritoAtivo,
-                    ]}
-                  >
-                    {favoritos.includes(item.id) ? "⭐" : "☆"}
-                  </Text>
-                </TouchableOpacity>
-              </View>
-              <Text style={styles.description}>{item.descricao}</Text>
-              <TouchableOpacity
-                onPress={() => mostrarIngredientes(item.ingredientes)}
-                style={styles.btnIngredientes}
-              >
-                <Text style={styles.btnText}>👀 Ver ingredientes</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
-        )}
-        contentContainerStyle={{ paddingBottom: 40 }}
+        renderItem={renderItem}
+        contentContainerStyle={{ paddingBottom: 120 }}
         showsVerticalScrollIndicator={false}
       />
+
+      <View style={styles.footer}>
+        <View style={styles.linha} />
+        <Text style={styles.nomeAluno}>Bernardo Barcaro Weiss – 3° Info B</Text>
+      </View>
     </View>
   );
 }
@@ -217,5 +226,26 @@ const styles = StyleSheet.create({
     color: "#4B2E05",
     fontWeight: "bold",
     fontSize: 16,
+  },
+  footer: {
+    position: "absolute",
+    bottom: 10,
+    left: 0,
+    right: 0,
+    backgroundColor: "#4B2E05",
+    paddingVertical: 8,
+    alignItems: "center",
+  },
+  linha: {
+    width: "90%",
+    height: 1,
+    backgroundColor: "#F5D042",
+    marginBottom: 6,
+  },
+  nomeAluno: {
+    color: "#F5D042",
+    fontWeight: "600",
+    fontSize: 14,
+    textAlign: "center",
   },
 });
