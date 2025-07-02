@@ -2,9 +2,12 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
+import SobreFestaScreen from "./screens/SobreFestaScreen";
 import CardapioScreen from "./screens/CardapioScreen";
 import QuizJunino from "./screens/QuizJunino";
-import SobreFestaScreen from "./screens/SobreFestaScreen";
+import PescariaScreen from "./screens/PescariaScreen";
+import RotaFestaScreen from "./screens/RotaFestaScreen";
+import CorreioEleganteScreen from "./screens/CorreioEleganteScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +33,21 @@ export default function App() {
           name="Quiz"
           component={QuizJunino}
           options={{ title: "Quiz Junino" }}
+        />
+        <Stack.Screen
+          name="Pescaria"
+          component={PescariaScreen}
+          options={{ title: "Pescaria Junina" }}
+        />
+        <Stack.Screen
+          name="Rota"
+          component={RotaFestaScreen}
+          options={{ title: "Rota até a Festa" }}
+        />
+        <Stack.Screen
+          name="CorreioElegante"
+          component={CorreioEleganteScreen}
+          options={{ title: "Correio Elegante" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

@@ -111,7 +111,7 @@ export default function CardapioScreen() {
             <View style={styles.textContainer}>
               <View style={styles.headerRow}>
                 <Text style={styles.text}>
-                  {item.nome} – R$ {item.preco}
+                  {item.nome} – R$ {item.preco.toFixed(2)}
                 </Text>
                 <TouchableOpacity onPress={() => toggleFavorito(item.id)}>
                   <Text
@@ -120,7 +120,7 @@ export default function CardapioScreen() {
                       favoritos.includes(item.id) && styles.favoritoAtivo,
                     ]}
                   >
-                    {favoritos.includes(item.id) ? "★" : "☆"}
+                    {favoritos.includes(item.id) ? "⭐" : "☆"}
                   </Text>
                 </TouchableOpacity>
               </View>
@@ -129,12 +129,13 @@ export default function CardapioScreen() {
                 onPress={() => mostrarIngredientes(item.ingredientes)}
                 style={styles.btnIngredientes}
               >
-                <Text style={styles.btnText}>Ver ingredientes</Text>
+                <Text style={styles.btnText}>👀 Ver ingredientes</Text>
               </TouchableOpacity>
             </View>
           </View>
         )}
         contentContainerStyle={{ paddingBottom: 40 }}
+        showsVerticalScrollIndicator={false}
       />
     </View>
   );
@@ -147,25 +148,32 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
     marginBottom: 20,
     color: "#F5D042",
     textAlign: "center",
+    textShadowColor: "#3E2200",
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2,
   },
   item: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginBottom: 25,
+    marginBottom: 22,
     backgroundColor: "#E07B39",
     padding: 15,
-    borderRadius: 12,
+    borderRadius: 15,
+    shadowColor: "#000",
+    shadowOpacity: 0.2,
+    shadowRadius: 6,
+    shadowOffset: { width: 0, height: 3 },
   },
   image: {
     width: 60,
     height: 60,
     marginRight: 15,
-    borderRadius: 8,
+    borderRadius: 10,
   },
   textContainer: {
     flex: 1,
@@ -178,30 +186,36 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 18,
     color: "#FFF8DC",
-    fontWeight: "600",
+    fontWeight: "700",
   },
   favorite: {
-    fontSize: 24,
+    fontSize: 26,
     color: "#FFF8DC",
   },
   favoritoAtivo: {
     color: "#FFD700",
   },
   description: {
-    fontSize: 14,
+    fontSize: 15,
     color: "#FFF8DC",
-    marginTop: 4,
+    marginTop: 6,
+    fontStyle: "italic",
   },
   btnIngredientes: {
-    marginTop: 8,
+    marginTop: 10,
     backgroundColor: "#F5D042",
-    borderRadius: 6,
-    paddingVertical: 6,
-    paddingHorizontal: 12,
+    borderRadius: 8,
+    paddingVertical: 8,
+    paddingHorizontal: 16,
     alignSelf: "flex-start",
+    shadowColor: "#3E2200",
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    shadowOffset: { width: 0, height: 2 },
   },
   btnText: {
     color: "#4B2E05",
     fontWeight: "bold",
+    fontSize: 16,
   },
 });
