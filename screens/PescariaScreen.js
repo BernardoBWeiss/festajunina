@@ -103,7 +103,7 @@ export default function PescariaScreen() {
 
         <View style={styles.footer}>
           <View style={styles.divider} />
-          <Text style={styles.footerText}>Bernardo Barcaro Weiss – 3° Info B</Text>
+          <Text style={styles.footerText}>Bernardo Barcaro Weiss e Lucas Trindade – 3° Info B</Text>
         </View>
       </View>
     </TouchableWithoutFeedback>

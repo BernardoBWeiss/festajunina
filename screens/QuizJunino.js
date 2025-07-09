@@ -101,7 +101,7 @@ export default function QuizJunino() {
         <Text style={styles.titulo}>📝 Quiz Junino</Text>
         <Text style={styles.pergunta}>{pergunta.pergunta}</Text>
         {pergunta.opcoes.map((opcao, index) => {
-          const letra = String.fromCharCode(65 + index); // A, B, C, D...
+          const letra = String.fromCharCode(65 + index); 
           return (
             <TouchableOpacity
               key={opcao}
@@ -119,7 +119,7 @@ export default function QuizJunino() {
 
       <View style={styles.footer}>
         <View style={styles.linha} />
-        <Text style={styles.nomeAluno}>Bernardo Barcaro Weiss – 3° Info B</Text>
+        <Text style={styles.nomeAluno}>Bernardo Barcaro Weiss e Lucas Trindade – 3° Info B</Text>
       </View>
     </View>
   );

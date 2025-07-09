@@ -51,7 +51,7 @@ export default function HomeScreen({ navigation }) {
 
         <View style={styles.divider} />
 
-        <Text style={styles.author}>Bernardo Barcaro Weiss – 3° Info B</Text>
+        <Text style={styles.author}>Bernardo Barcaro Weiss e Lucas Trindade – 3° Info B</Text>
       </ScrollView>
     </View>
   );

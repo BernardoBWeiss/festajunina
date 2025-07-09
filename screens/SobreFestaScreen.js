@@ -67,7 +67,7 @@ export default function SobreFestaScreen() {
 
       <View style={styles.footer}>
         <View style={styles.linha} />
-        <Text style={styles.nomeAluno}>Bernardo Barcaro Weiss – 3° Info B</Text>
+        <Text style={styles.nomeAluno}>Bernardo Barcaro Weiss e Lucas Trindade – 3° Info B</Text>
       </View>
     </View>
   );
