@@ -23,7 +23,7 @@ export default function CorreioEleganteScreen() {
 
     async function carregarMensagens() {
         try {
-            const json = await AsyncStorage.getItem("@mensagens");
+            const json = await AsyncStorage.getItem("mensagens");
             if (json !== null) {
                 setMensagensRecebidas(JSON.parse(json));
             }
@@ -34,7 +34,7 @@ export default function CorreioEleganteScreen() {
 
     async function salvarMensagens(novasMensagens) {
         try {
-            await AsyncStorage.setItem("@mensagens", JSON.stringify(novasMensagens));
+            await AsyncStorage.setItem("mensagens", JSON.stringify(novasMensagens));
         } catch (error) {
             console.log("Erro ao salvar mensagens:", error);
         }
@@ -88,11 +88,11 @@ export default function CorreioEleganteScreen() {
 
             <TextInput
                 style={[styles.input, styles.inputMensagem]}
-                placeholder="Escreva sua mensagem secreta ✨🎉"
+                placeholder="Escreva sua mensagem!!!"
                 value={mensagem}
                 onChangeText={setMensagem}
                 multiline
-                maxLength={250}
+                maxLength={50}
             />
 
             <TouchableOpacity style={styles.botaoEnviar} onPress={enviarMensagem}>

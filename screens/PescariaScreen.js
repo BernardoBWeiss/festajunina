@@ -12,7 +12,7 @@ import {
 
 const { width, height } = Dimensions.get("window");
 const ITEM_SIZE = 70;
-const TEMPO_PARA_CLICAR = 3000;
+const TEMPO_PARA_CLICAR = 2000;
 const MAX_VIDAS = 3;
 
 export default function PescariaScreen() {

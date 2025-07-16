@@ -53,14 +53,14 @@ export default function SobreFestaScreen() {
           O jogo da pescaria simula a clássica brincadeira das barraquinhas! O
           desafio é tocar rapidamente no peixinho animado que aparece em lugares
           aleatórios da tela. A cada toque certo, você ganha pontos, mas se errar
-          ou demorar mais de 3 segundos, perde vidas. O jogo só termina quando todas as vidas acabam.
+          ou demorar mais de 2 segundos, perde vidas. O jogo só termina quando todas as vidas acabam.
         </Text>
 
         <Text style={styles.subtitle}>🧠 Quiz Junino</Text>
         <Text style={styles.paragraph}>
           O quiz junino testa seus conhecimentos sobre a festa! São perguntas com
-          múltipla escolha sobre tradições, comidas, músicas e brincadeiras. Ao
-          final, você vê sua pontuação e recebe uma mensagem divertida de acordo
+          múltipla escolha sobre tradições, comidas, músicas e brin cadeiras. Ao
+          final, você vê sua pontuação e recebe uma mensagem de acordo
           com o número de acertos.
         </Text>
       </ScrollView>
